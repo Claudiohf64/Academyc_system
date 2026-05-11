@@ -1,0 +1,131 @@
+### Variables Globales
+@baseUrl = http://localhost:3000/api
+@adminToken = PON_AQUI_EL_TOKEN_DEL_ADMINISTRADOR
+
+### ============================================================================
+### 1. AUTENTICACIÓN (Solo para obtener TOKEN)
+### ============================================================================
+
+### Iniciar Sesión (Admin)
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "123456"
+}
+
+### ============================================================================
+### 2. CARRERAS (Gestión de Programas Académicos)
+### ============================================================================
+
+### Listar todas las carreras (Con Filtros)
+# Query Params opcionales: ?nombre=Informatica&activo=true
+GET {{baseUrl}}/careers
+Authorization: Bearer {{adminToken}}
+
+### Crear Carrera
+# Frontend: Usar un formulario con Nombre, Duración (meses) y Descripción.
+POST {{baseUrl}}/careers
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "nombre": "Diseño Gráfico Digital",
+  "duracion_meses": 36,
+  "descripcion": "Carrera enfocada en artes visuales digitales",
+  "activo": true
+}
+
+### ============================================================================
+### 3. CURSOS (Gestión de Asignaturas)
+### ============================================================================
+
+### Listar Cursos por CARRERA (Muy útil para la vista del Alumno)
+# Frontend: El alumno elige carrera y el sistema filtra los cursos correspondientes.
+GET {{baseUrl}}/courses?career_id=1
+Authorization: Bearer {{adminToken}}
+
+### Crear Curso
+# Frontend: Formulario con selector de Carrera, Nombre, Créditos, Fechas y Horarios.
+POST {{baseUrl}}/courses
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "career_id": 1,
+  "nombre": "Fundamentos de Diseño",
+  "creditos": 4,
+  "fecha_inicio": "2026-08-01",
+  "fecha_fin": "2026-12-20",
+  "dias": "Martes, Jueves",
+  "horario": "08:00 - 12:00",
+  "descripcion": "Introducción al diseño",
+  "activo": true
+}
+
+### ============================================================================
+### 4. MATRÍCULA Y REGISTRO (Flujo Principal)
+### ============================================================================
+
+### Registrar Alumno y Matricularlo (FLUJO ÚNICO)
+# Frontend: No crear formulario de 'Crear Estudiante'. Usar este formulario de MATRÍCULA.
+# Validaciones: DNI (8 dígitos), Teléfono (9 dígitos), Dirección (Obligatoria).
+POST {{baseUrl}}/enrollments/register
+Content-Type: application/json
+
+{
+  "dni": "70001122", 
+  "email": "nuevo.alumno@test.com",
+  "password": "password123",
+  "career_id": 1,
+  "telefono": "900111222",
+  "direccion": "Calle Falsa 123"
+}
+
+### ============================================================================
+### 5. REGISTRO DOCENTES (Solo Administrador)
+### ============================================================================
+
+### Registrar Nuevo Docente (Solo Admin)
+# Frontend: No usar formulario general de usuarios. Usar este de DOCENTES.
+# El sistema autocompleta nombres y genera el código institucional.
+POST {{baseUrl}}/teachers/register
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "dni": "11223344",
+  "email": "profesor.nuevo@instituto.edu",
+  "password": "clave_profesor",
+  "celular": "988777666",
+  "direccion": "Avenida Siempre Viva 742"
+}
+
+### ============================================================================
+### 6. GESTIÓN DE MATRÍCULAS (CRUD COMPLETO)
+### ============================================================================
+
+### Ver todas las matrículas (Con info de Alumno y Carrera)
+GET {{baseUrl}}/enrollments
+Authorization: Bearer {{adminToken}}
+
+### Obtener detalle de una matrícula específica
+GET {{baseUrl}}/enrollments/1
+Authorization: Bearer {{adminToken}}
+
+### Actualizar ESTADO de Matrícula (Dinámico)
+# Estados válidos: 'activa', 'completada', 'anulada'
+# Frontend: Usar un <select> con estas 3 opciones.
+PUT {{baseUrl}}/enrollments/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "estado": "completada"
+}
+
+### Eliminar Matrícula
+DELETE {{baseUrl}}/enrollments/1
+Authorization: Bearer {{adminToken}}

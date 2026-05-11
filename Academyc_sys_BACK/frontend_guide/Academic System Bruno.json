@@ -1,0 +1,913 @@
+{
+  "info": {
+    "name": "Academic System - Instituto",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@test.com\",\n  \"password\": \"123456\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "host": ["http://localhost:3000/api"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/me",
+              "host": ["http://localhost:3000/api"],
+              "path": ["auth", "me"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users (Usuarios)",
+      "item": [
+        {
+          "name": "List All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"]
+            }
+          }
+        },
+        {
+          "name": "Global Search Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users?search=Juan",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"],
+              "query": [{ "key": "search", "value": "Juan" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users?nombres=Juan",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"],
+              "query": [{ "key": "nombres", "value": "Juan" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users?email=@test.com",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"],
+              "query": [{ "key": "email", "value": "@test.com" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Role",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users?role=admin",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"],
+              "query": [{ "key": "role", "value": "admin" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Active Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users?activo=true",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"],
+              "query": [{ "key": "activo", "value": "true" }]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Juan Perez\",\n  \"email\": \"juan.perez@test.com\",\n  \"password\": \"123456\",\n  \"role\": \"admin\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Juan Perez Updated\",\n  \"role\": \"user\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["users", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Careers (Carreras)",
+      "item": [
+        {
+          "name": "List All Careers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers"]
+            }
+          }
+        },
+        {
+          "name": "Global Search Careers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers?search=Diseño",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers"],
+              "query": [{ "key": "search", "value": "Diseño" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers?nombre=Diseño",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers"],
+              "query": [{ "key": "nombre", "value": "Diseño" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Active Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers?activo=true",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers"],
+              "query": [{ "key": "activo", "value": "true" }]
+            }
+          }
+        },
+        {
+          "name": "Create Career",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Diseño Gráfico\",\n  \"duracion_meses\": 36,\n  \"descripcion\": \"Carrera de artes visuales\",\n  \"activo\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/careers",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers"]
+            }
+          }
+        },
+        {
+          "name": "Get Career by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Career",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Diseño Gráfico Digital\",\n  \"duracion_meses\": 40\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/careers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Career",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/careers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["careers", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Courses (Cursos)",
+      "item": [
+        {
+          "name": "List All Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"]
+            }
+          }
+        },
+        {
+          "name": "Global Search Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses?search=Programación",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"],
+              "query": [{ "key": "search", "value": "Programación" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses?nombre=Programación",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"],
+              "query": [{ "key": "nombre", "value": "Programación" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Career ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses?career_id=1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"],
+              "query": [{ "key": "career_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Active Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses?activo=true",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"],
+              "query": [{ "key": "activo", "value": "true" }]
+            }
+          }
+        },
+        {
+          "name": "Create Course",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"career_id\": 1,\n  \"nombre\": \"Fundamentos de Programación\",\n  \"creditos\": 4,\n  \"fecha_inicio\": \"2026-08-01\",\n  \"fecha_fin\": \"2026-12-20\",\n  \"dias\": \"Martes, Jueves\",\n  \"horario\": \"08:00 - 12:00\",\n  \"descripcion\": \"Introducción al desarrollo\",\n  \"activo\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/courses",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses"]
+            }
+          }
+        },
+        {
+          "name": "Get Course by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Course",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Programación Avanzada\",\n  \"creditos\": 5\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/courses/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Course",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enrollments (Matrículas)",
+      "item": [
+        {
+          "name": "List All Enrollments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"]
+            }
+          }
+        },
+        {
+          "name": "Global Search (Student/Career)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments?search=Juan",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"],
+              "query": [{ "key": "search", "value": "Juan" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Student Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments?student_name=Juan",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"],
+              "query": [{ "key": "student_name", "value": "Juan" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Student DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments?student_dni=70001122",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"],
+              "query": [{ "key": "student_dni", "value": "70001122" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Career Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments?career_name=Diseño",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"],
+              "query": [{ "key": "career_name", "value": "Diseño" }]
+            }
+          }
+        },
+        {
+          "name": "Search by State",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments?estado=activa",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"],
+              "query": [{ "key": "estado", "value": "activa" }]
+            }
+          }
+        },
+        {
+          "name": "Public Register & Enroll",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dni\": \"70001122\",\n  \"email\": \"nuevo.alumno@test.com\",\n  \"password\": \"password123\",\n  \"career_id\": 1,\n  \"telefono\": \"900111222\",\n  \"direccion\": \"Calle Falsa 123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments/register",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments", "register"]
+            }
+          }
+        },
+        {
+          "name": "Create Enrollment (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student_id\": 1,\n  \"career_id\": 1,\n  \"estado\": \"activa\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments"]
+            }
+          }
+        },
+        {
+          "name": "Get Enrollment by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Enrollment State",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"completada\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Enrollment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/enrollments/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["enrollments", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Students (Alumnos)",
+      "item": [
+        {
+          "name": "List All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"]
+            }
+          }
+        },
+        {
+          "name": "Global Search Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students?search=7000",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"],
+              "query": [{ "key": "search", "value": "7000" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students?nombres=Juan",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"],
+              "query": [{ "key": "nombres", "value": "Juan" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Last Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students?apellido_paterno=Perez",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"],
+              "query": [{ "key": "apellido_paterno", "value": "Perez" }]
+            }
+          }
+        },
+        {
+          "name": "Search by DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students?dni=70001122",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"],
+              "query": [{ "key": "dni", "value": "70001122" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students?email=alumno@test.com",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students"],
+              "query": [{ "key": "email", "value": "alumno@test.com" }]
+            }
+          }
+        },
+        {
+          "name": "Lookup Student by DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students/dni/70001122",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students", "dni", "70001122"]
+            }
+          }
+        },
+        {
+          "name": "Get Student by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"telefono\": \"999888777\",\n  \"direccion\": \"Nueva Direccion 456\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/students/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/students/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["students", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teachers (Docentes)",
+      "item": [
+        {
+          "name": "List All Teachers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"]
+            }
+          }
+        },
+        {
+          "name": "Global Search Teachers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers?search=Carlos",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"],
+              "query": [{ "key": "search", "value": "Carlos" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers?nombres=Carlos",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"],
+              "query": [{ "key": "nombres", "value": "Carlos" }]
+            }
+          }
+        },
+        {
+          "name": "Search by DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers?dni=11223344",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"],
+              "query": [{ "key": "dni", "value": "11223344" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers?cod_docente=DOC-001",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"],
+              "query": [{ "key": "cod_docente", "value": "DOC-001" }]
+            }
+          }
+        },
+        {
+          "name": "Search by Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers?email=profesor@test.com",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"],
+              "query": [{ "key": "email", "value": "profesor@test.com" }]
+            }
+          }
+        },
+        {
+          "name": "Register Teacher (DNI Auto-lookup)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dni\": \"11223344\",\n  \"email\": \"profesor.nuevo@instituto.edu\",\n  \"password\": \"clave123\",\n  \"celular\": \"988777666\",\n  \"direccion\": \"Av. Siempre Viva 742\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/register",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "register"]
+            }
+          }
+        },
+        {
+          "name": "Create Teacher (Manual)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Juan\",\n  \"apellido_paterno\": \"Gomez\",\n  \"apellido_materno\": \"Perez\",\n  \"dni\": \"11223344\",\n  \"cod_docente\": \"DOC-123\",\n  \"email\": \"juan.gomez@test.com\",\n  \"celular\": \"988777666\",\n  \"direccion\": \"Av. Las Flores 123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/teachers",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers"]
+            }
+          }
+        },
+        {
+          "name": "Lookup Teacher by DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/dni/11223344",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "dni", "11223344"]
+            }
+          }
+        },
+        {
+          "name": "Lookup Teacher by Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/cod_docente/DOC-001",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "cod_docente", "DOC-001"]
+            }
+          }
+        },
+        {
+          "name": "Get Teacher by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Teacher",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"celular\": \"955444333\",\n  \"direccion\": \"Calle Actualizada 789\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Teacher",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/teachers/1",
+              "host": ["http://localhost:3000/api"],
+              "path": ["teachers", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/health",
+              "host": ["http://localhost:3000/api"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

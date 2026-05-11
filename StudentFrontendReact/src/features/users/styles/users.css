@@ -1,0 +1,9 @@
+.role-pill.admin {
+  background: rgba(139, 93, 31, 0.14);
+  color: var(--warning);
+}
+
+.role-pill.user {
+  background: rgba(37, 109, 133, 0.12);
+  color: #1f5c8a;
+}

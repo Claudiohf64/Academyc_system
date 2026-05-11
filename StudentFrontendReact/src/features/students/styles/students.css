@@ -1,0 +1,18 @@
+.students-page .module-meta strong {
+  color: #1f5c8a;
+}
+
+.students-table th:nth-child(1),
+.students-table td:nth-child(1) {
+  width: 72px;
+}
+
+.students-table th:nth-child(2),
+.students-table td:nth-child(2) {
+  width: 120px;
+}
+
+.students-table th:last-child,
+.students-table td:last-child {
+  width: 180px;
+}
