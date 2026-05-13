@@ -239,7 +239,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Diseño Gráfico\",\n  \"duracion_meses\": 36,\n  \"descripcion\": \"Carrera de artes visuales\",\n  \"activo\": true\n}",
+              "raw": "{\n  \"nombre\": \"Diseño Gráfico\",\n  \"duracion_meses\": 36,\n  \"descripcion\": \"Carrera de artes visuales\",\n  \"imagen_url\": \"https://ejemplo.com/imagen.jpg\",\n  \"activo\": true\n}",
               "options": { "raw": { "language": "json" } }
             },
             "url": {
@@ -366,7 +366,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"career_id\": 1,\n  \"nombre\": \"Fundamentos de Programación\",\n  \"creditos\": 4,\n  \"fecha_inicio\": \"2026-08-01\",\n  \"fecha_fin\": \"2026-12-20\",\n  \"dias\": \"Martes, Jueves\",\n  \"horario\": \"08:00 - 12:00\",\n  \"descripcion\": \"Introducción al desarrollo\",\n  \"activo\": true\n}",
+              "raw": "{\n  \"career_id\": 1,\n  \"teacher_id\": 1,\n  \"nombre\": \"Fundamentos de Programación\",\n  \"creditos\": 4,\n  \"fecha_inicio\": \"2026-08-01\",\n  \"fecha_fin\": \"2026-12-20\",\n  \"dias\": \"Martes, Jueves\",\n  \"horario\": \"08:00 - 12:00\",\n  \"descripcion\": \"Introducción al desarrollo\",\n  \"activo\": true\n}",
               "options": { "raw": { "language": "json" } }
             },
             "url": {
@@ -402,6 +402,18 @@
               "raw": "http://localhost:3000/api/courses/1",
               "host": ["http://localhost:3000/api"],
               "path": ["courses", "1"]
+            }
+          }
+        },
+        {
+          "name": "List Students in Course",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/courses/1/students",
+              "host": ["http://localhost:3000/api"],
+              "path": ["courses", "1", "students"]
             }
           }
         },
@@ -792,7 +804,7 @@
           }
         },
         {
-          "name": "Register Teacher (DNI Auto-lookup)",
+          "name": "Register Teacher (Admin Only) (DNI Auto-lookup)",
           "request": {
             "method": "POST",
             "header": [],

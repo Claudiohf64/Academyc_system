@@ -96,7 +96,11 @@ Este documento proporciona una hoja de ruta detallada para el desarrollo del fro
 3. Al seleccionar una Carrera, cargar sus Cursos vinculados usando el filtro ?career_id=.
 
 ### Fase 4: Modulo de Matriculas y Alumnos
-1. Implementar el formulario publico de "Inscripcion Rapida" usando /enrollments/register.
+1. **Flujo de Inscripción Pública ("¡Matricúlate Ya!")**:
+    - Vista de tarjetas: Llamar a `GET /careers` para mostrar las tarjetas con `imagen_url`.
+    - Selección: Al elegir una tarjeta, redirigir al formulario guardando el `career_id`.
+    - Registro: Formulario que solicita DNI, Teléfono, Dirección, Email y Password.
+    - Envío: Usar `POST /enrollments/register` enviando todos los datos + el `career_id` mapeado.
 2. Crear la vista administrativa de Matriculas con filtros por DNI y Nombre del Alumno.
 3. Implementar la funcionalidad de actualizacion de estado (Activa/Completada/Anulada).
 
@@ -137,7 +141,56 @@ Este documento proporciona una hoja de ruta detallada para el desarrollo del fro
 ### 6. Usuarios (Users)
 - GET /users: Gestion de cuentas de usuario. Filtros: ?role=, ?activo=. Uso: Control de acceso al sistema.
 
+## Dashboard del Alumno (Post-Login)
+
+### 1. Perfil y Datos del Alumno
+- **Endpoint**: `GET /auth/me` (Debe incluir perfil de Student).
+- **Uso**: Cargar datos personales y listado de carreras matriculadas.
+
+### 2. Vista de Horario
+- **Endpoint**: `GET /courses?career_id={id}`.
+- **Lógica**: Ordenar los resultados por `fecha_inicio` en el cliente o mediante query param si el backend lo soporta.
+- **Visualización**: Lista cronológica.
+
+### 3. Vista de Cursos
+- **Visualización**: Componente de Tarjetas (`CourseCard`). Sin navegación.
+
+---
+
+## Dashboard del Docente (Post-Login)
+
+### 1. Perfil y Carga Académica
+- **Endpoint**: `GET /auth/me` (Incluir perfil `Teacher` y sus `Courses`).
+- **Uso**: Mostrar datos personales y materias asignadas.
+
+### 2. Mi Horario (Agenda)
+- **Endpoint**: `GET /courses?teacher_id={id}`.
+- **Visualización**: Lista ordenada por horario y días.
+
+### 3. Listado de Alumnos por Curso
+- **Endpoint**: `GET /courses/:id/students`.
+- **Uso**: Al hacer clic en un curso, cargar la lista de alumnos matriculados en la carrera de dicho curso.
+
+---
+
+## Dashboard del Administrador (Gestión Total)
+
+### 1. Panel de Carreras y Cursos
+- **Endpoints**: `GET /careers`, `POST /careers`, `PUT /careers/:id`, `DELETE /careers/:id`.
+- **Interfaz**: Tablas con búsqueda y formularios en modales.
+
+### 2. Panel de Docentes (Solo Admin)
+- **Endpoint Registro**: `POST /teachers/register` (Protegido por rol Admin).
+- **Listado**: `GET /teachers?search={valor}`.
+
+### 3. Panel de Estudiantes
+- **Listado**: `GET /students`.
+- **Detalle**: Permite ver todas las matrículas del alumno.
+
+---
+
 ## Consejos para la Integracion
 - Manejo de IDs: Siempre usa los IDs devueltos por la API para las operaciones de actualizacion (PUT) y eliminacion (DELETE).
 - Carga de Datos: Usa el parametro ?search= para implementar buscadores "vivos" (live search) que consulten mientras el usuario escribe.
 - Feedback al Usuario: Muestra estados de "Cargando..." mientras las peticiones de red estan en curso para evitar que la interfaz parezca congelada.
+

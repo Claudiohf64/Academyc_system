@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "start": "npx sequelize-cli db:migrate && node src/server.js",
     "migrate": "sequelize-cli db:migrate",
     "migrate:undo": "sequelize-cli db:migrate:undo",
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "send-undo": "sequelize-cli db:seed:undo:all"
   },
   "keywords": [],
